@@ -5,12 +5,12 @@ import javafx.geometry.Side;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.layout.Pane;
 
-public class Axes extends Pane {
+public class CartesianAxes extends Pane {
 
     private NumberAxis xAxis;
     private NumberAxis yAxis;
 
-    public Axes(
+    public CartesianAxes(
             int width, int height,
             double xLow, double xHi, double xTickUnit,
             double yLow, double yHi, double yTickUnit
