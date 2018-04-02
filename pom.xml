@@ -45,7 +45,7 @@
                     <archive>
                         <manifest>
                             <addClasspath>true</addClasspath>
-                            <mainClass>app.CarControlBoard</mainClass>
+                            <mainClass>app.GraphBuilderApp</mainClass>
                         </manifest>
                     </archive>
                     <descriptorRefs>
