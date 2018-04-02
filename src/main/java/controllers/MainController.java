@@ -32,7 +32,7 @@ public class MainController {
     }
 
     public void initGraphView() {
-        LOGGER.info("Perform initialisation for graph plotting ...\n");
+        LOGGER.info("Perform initialisation for graph plotting ...");
         txtFieldForEquation.setText("y = \u00BC(x+4)(x+1)(x-2)");
 
         final int anchorPaneForGraphWidth = (int) anchorPaneForGraph.getWidth();

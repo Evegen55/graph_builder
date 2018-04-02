@@ -12,7 +12,7 @@
             <Pane prefHeight="670.0" prefWidth="600.0" style="-fx-background-color: rgb(35, 39, 50);" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
          </children>
       </AnchorPane>
-      <Canvas fx:id="canvasGraph" height="226.0" layoutX="793.0" layoutY="398.0" width="293.0" />
+      <Canvas fx:id="canvasGraph" height="226.0" layoutX="993.0" layoutY="23.0" width="293.0" />
       <TextField fx:id="txtFieldForEquation" layoutX="466.0" layoutY="14.0" prefHeight="25.0" prefWidth="600.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="685.0" AnchorPane.topAnchor="10.0" />
    </children>
 </AnchorPane>
