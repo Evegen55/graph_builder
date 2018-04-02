@@ -6,11 +6,17 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class GraphBuilderApp extends Application {
+
+    private final static Logger LOGGER = LoggerFactory.getLogger(GraphBuilderApp.class);
+
     @Override
     public void start(Stage primaryStage) throws Exception {
-        primaryStage.setTitle("Car control panel");
+        LOGGER.info("Start loading application ...");
+        primaryStage.setTitle("Math in action");
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/fxml/base.fxml"));
         // set the main controller as root controller
@@ -24,5 +30,7 @@ public class GraphBuilderApp extends Application {
         //do the stuff
         mainController.initGraphView();
         mainController.initFreeDrawer();
+
+        LOGGER.info("Main application window has been loaded successfully\n");
     }
 }

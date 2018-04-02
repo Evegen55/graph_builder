@@ -1,6 +1,6 @@
 package controllers;
 
-import entities.Axes;
+import entities.CartesianAxes;
 import entities.Plot;
 import javafx.fxml.FXML;
 import javafx.scene.canvas.Canvas;
@@ -8,8 +8,14 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.util.function.Function;
 
 public class MainController {
+
+    private final static Logger LOGGER = LoggerFactory.getLogger(MainController.class);
 
     private final Stage primaryStage;
 
@@ -26,19 +32,22 @@ public class MainController {
     }
 
     public void initGraphView() {
+        LOGGER.info("Perform initialisation for graph plotting ...\n");
         txtFieldForEquation.setText("y = \u00BC(x+4)(x+1)(x-2)");
 
-        Axes axes = new Axes(
-                (int) anchorPaneForGraph.getWidth(), (int) anchorPaneForGraph.getHeight(),
-                -(int) anchorPaneForGraph.getWidth() / 50, (int) anchorPaneForGraph.getWidth() / 50, 1,
-                -(int) anchorPaneForGraph.getHeight() / 50, (int) anchorPaneForGraph.getHeight() / 50, 1
-        );
+        final int anchorPaneForGraphWidth = (int) anchorPaneForGraph.getWidth();
+        final int anchorPaneForGraphHeight = (int) anchorPaneForGraph.getHeight();
+        final int axisRatio = 50;
+        final int xBoundaries = anchorPaneForGraphWidth / axisRatio;
+        final int yBoundaries = anchorPaneForGraphHeight / axisRatio;
 
-        Plot plot = new Plot(
-                x -> .25 * (x + 4) * (x + 1) * (x - 2),
-                -8, 8, 0.1,
-                axes
+        final CartesianAxes cartesianAxes = new CartesianAxes(
+                anchorPaneForGraphWidth, anchorPaneForGraphHeight,
+                -xBoundaries, xBoundaries, 1,
+                -yBoundaries, yBoundaries, 1
         );
+        final Function<Double, Double> function = x -> .25 * (x + 4) * (x + 1) * (x - 2);
+        final Plot plot = new Plot(function, -xBoundaries, xBoundaries, 0.1, cartesianAxes);
 
         anchorPaneForGraph.getChildren().add(plot);
     }
