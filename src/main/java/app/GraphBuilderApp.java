@@ -21,6 +21,8 @@ public class GraphBuilderApp extends Application {
         primaryStage.setScene(scene);
         primaryStage.show();
 
+        //do the stuff
         mainController.initGraphView();
+        mainController.initFreeDrawer();
     }
 }
