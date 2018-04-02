@@ -13,7 +13,7 @@ public class Plot extends Pane {
     public Plot(
             Function<Double, Double> f,
             double xMin, double xMax, double xInc,
-            Axes axes
+            CartesianAxes cartesianAxes
     ) {
         Path path = new Path();
         path.setStroke(Color.ORANGE.deriveColor(0, 1, 1, 0.6));
@@ -22,8 +22,8 @@ public class Plot extends Pane {
         path.setClip(
                 new Rectangle(
                         0, 0,
-                        axes.getPrefWidth(),
-                        axes.getPrefHeight()
+                        cartesianAxes.getPrefWidth(),
+                        cartesianAxes.getPrefHeight()
                 )
         );
 
@@ -32,7 +32,7 @@ public class Plot extends Pane {
 
         path.getElements().add(
                 new MoveTo(
-                        mapX(x, axes), mapY(y, axes)
+                        mapX(x, cartesianAxes), mapY(y, cartesianAxes)
                 )
         );
 
@@ -42,7 +42,7 @@ public class Plot extends Pane {
 
             path.getElements().add(
                     new LineTo(
-                            mapX(x, axes), mapY(y, axes)
+                            mapX(x, cartesianAxes), mapY(y, cartesianAxes)
                     )
             );
 
@@ -50,26 +50,26 @@ public class Plot extends Pane {
         }
 
         setMinSize(Pane.USE_PREF_SIZE, Pane.USE_PREF_SIZE);
-        setPrefSize(axes.getPrefWidth(), axes.getPrefHeight());
+        setPrefSize(cartesianAxes.getPrefWidth(), cartesianAxes.getPrefHeight());
         setMaxSize(Pane.USE_PREF_SIZE, Pane.USE_PREF_SIZE);
 
-        getChildren().setAll(axes, path);
+        getChildren().setAll(cartesianAxes, path);
     }
 
-    private double mapX(double x, Axes axes) {
-        double tx = axes.getPrefWidth() / 2;
-        double sx = axes.getPrefWidth() /
-                (axes.getXAxis().getUpperBound() -
-                        axes.getXAxis().getLowerBound());
+    private double mapX(double x, CartesianAxes cartesianAxes) {
+        double tx = cartesianAxes.getPrefWidth() / 2;
+        double sx = cartesianAxes.getPrefWidth() /
+                (cartesianAxes.getXAxis().getUpperBound() -
+                        cartesianAxes.getXAxis().getLowerBound());
 
         return x * sx + tx;
     }
 
-    private double mapY(double y, Axes axes) {
-        double ty = axes.getPrefHeight() / 2;
-        double sy = axes.getPrefHeight() /
-                (axes.getYAxis().getUpperBound() -
-                        axes.getYAxis().getLowerBound());
+    private double mapY(double y, CartesianAxes cartesianAxes) {
+        double ty = cartesianAxes.getPrefHeight() / 2;
+        double sy = cartesianAxes.getPrefHeight() /
+                (cartesianAxes.getYAxis().getUpperBound() -
+                        cartesianAxes.getYAxis().getLowerBound());
 
         return -y * sy + ty;
     }
