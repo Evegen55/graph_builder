@@ -11,7 +11,7 @@ public class BigOController {
 
     private final static Logger LOGGER = LoggerFactory.getLogger(BigOController.class);
 
-    private static long performance_in_second = 1_000_000;
+    public static long performance_in_second = 1_000_000;
     private static long performance_in_1h = 60 * 60 * performance_in_second;
     private static long performance_in_1d = performance_in_1h * 24;
     private static long performance_in_1w = performance_in_1d * 7;

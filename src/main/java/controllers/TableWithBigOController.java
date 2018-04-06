@@ -7,6 +7,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,14 +24,16 @@ public class TableWithBigOController {
     private TableColumn n_squared_column;
     private TableColumn N_column;
     private TableColumn log_n_column;
+    private TextField txtFieldForTable;
 
-    public TableWithBigOController(TableColumn periods_columns, TableView tblViewBigO, TableColumn two_pow_N_column, TableColumn n_squared_column, TableColumn N_column, TableColumn log_n_column) {
+    public TableWithBigOController(TableColumn periods_columns, TableView tblViewBigO, TableColumn two_pow_N_column, TableColumn n_squared_column, TableColumn N_column, TableColumn log_n_column, TextField txtFieldForTable) {
         this.periods_columns = periods_columns;
         this.tblViewBigO = tblViewBigO;
         this.two_pow_N_column = two_pow_N_column;
         this.n_squared_column = n_squared_column;
         this.N_column = N_column;
         this.log_n_column = log_n_column;
+        this.txtFieldForTable = txtFieldForTable;
     }
 
     public void populateColumns() {
@@ -51,6 +54,8 @@ public class TableWithBigOController {
         LOGGER.info("Map rows to table columns...");
         tblViewBigO.setItems(data);
         LOGGER.info("Populating table columns with data is done.");
+        txtFieldForTable.setText("Amount of operations per period with CPU speed "
+                + BigOController.performance_in_second + " Hz (op/s)" + "with respect of complexity of algorithm");
     }
 
     private ObservableList<RowWithData> calculateAndCreateList() {

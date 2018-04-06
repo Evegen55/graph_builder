@@ -41,6 +41,8 @@ public class MainController {
     private TableColumn N_column;
     @FXML
     private TableColumn log_n_column;
+    @FXML
+    private TextField txtFieldForTable;
 
     public MainController(final Stage primaryStage) {
         this.primaryStage = primaryStage;
@@ -76,7 +78,7 @@ public class MainController {
     public void populateComplixityTable() {
         TableWithBigOController tableWithBigOController =
                 new TableWithBigOController(periods_columns, tblViewBigO, two_pow_N_column,
-                        n_squared_column, N_column, log_n_column);
+                        n_squared_column, N_column, log_n_column, txtFieldForTable);
         tableWithBigOController.populateColumns();
     }
 }
