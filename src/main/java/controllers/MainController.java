@@ -32,6 +32,8 @@ public class MainController {
     @FXML
     private TableView tblViewBigO;
     @FXML
+    private TableColumn periods_columns;
+    @FXML
     private TableColumn two_pow_N_column;
     @FXML
     private TableColumn n_squared_column;
@@ -73,7 +75,8 @@ public class MainController {
 
     public void populateComplixityTable() {
         TableWithBigOController tableWithBigOController =
-                new TableWithBigOController(tblViewBigO, two_pow_N_column, n_squared_column, N_column, log_n_column);
+                new TableWithBigOController(periods_columns, tblViewBigO, two_pow_N_column,
+                        n_squared_column, N_column, log_n_column);
         tableWithBigOController.populateColumns();
     }
 }

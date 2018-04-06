@@ -15,6 +15,7 @@ public class BigOController {
     private static long performance_in_1h = 60 * 60 * performance_in_second;
     private static long performance_in_1d = performance_in_1h * 24;
     private static long performance_in_1w = performance_in_1d * 7;
+    private static long performance_in_1m = performance_in_1d * 30;
     private static long performance_in_1y = performance_in_1d * 365;
 
     public static List<Long> longList = new ArrayList<>();
@@ -24,6 +25,7 @@ public class BigOController {
         longList.add(performance_in_1h);
         longList.add(performance_in_1d);
         longList.add(performance_in_1w);
+        longList.add(performance_in_1m);
         longList.add(performance_in_1y);
     }
 

@@ -18,12 +18,13 @@
       <TextField fx:id="txtFieldForEquation" layoutX="466.0" layoutY="14.0" prefHeight="25.0" prefWidth="600.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="685.0" AnchorPane.topAnchor="10.0" />
       <TableView fx:id="tblViewBigO" editable="true" layoutX="668.0" layoutY="45.0" prefHeight="200.0" prefWidth="600.0" tableMenuButtonVisible="true">
         <columns>
-            <TableColumn prefWidth="75.0" text="Period" />
+            <TableColumn fx:id="periods_columns" prefWidth="75.0" text="Period" />
             <TableColumn fx:id="two_pow_N_column" prefWidth="150.0" text="2^N" />
           <TableColumn fx:id="n_squared_column" prefWidth="150.0" text="N^2" />
           <TableColumn fx:id="N_column" prefWidth="150.0" text="N" />
             <TableColumn fx:id="log_n_column" prefWidth="50.0" text="log2(N)" />
         </columns>
       </TableView>
+      <TextField fx:id="txtFieldForTable" layoutX="668.0" layoutY="10.0" prefHeight="25.0" prefWidth="600.0" />
    </children>
 </AnchorPane>

@@ -1,6 +1,7 @@
 package controllers;
 
 import entities.Complexity;
+import entities.Periods;
 import entities.RowWithData;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -17,12 +18,14 @@ public class TableWithBigOController {
     private final static Logger LOGGER = LoggerFactory.getLogger(TableWithBigOController.class);
 
     private TableView tblViewBigO;
+    private TableColumn periods_columns;
     private TableColumn two_pow_N_column;
     private TableColumn n_squared_column;
     private TableColumn N_column;
     private TableColumn log_n_column;
 
-    public TableWithBigOController(TableView tblViewBigO, TableColumn two_pow_N_column, TableColumn n_squared_column, TableColumn N_column, TableColumn log_n_column) {
+    public TableWithBigOController(TableColumn periods_columns, TableView tblViewBigO, TableColumn two_pow_N_column, TableColumn n_squared_column, TableColumn N_column, TableColumn log_n_column) {
+        this.periods_columns = periods_columns;
         this.tblViewBigO = tblViewBigO;
         this.two_pow_N_column = two_pow_N_column;
         this.n_squared_column = n_squared_column;
@@ -32,6 +35,8 @@ public class TableWithBigOController {
 
     public void populateColumns() {
         LOGGER.info("Map columns with data ...");
+        periods_columns.setCellValueFactory(
+                new PropertyValueFactory<RowWithData, Periods>("period"));
         two_pow_N_column.setCellValueFactory(
                 new PropertyValueFactory<RowWithData, Number>("two_pow_N_column"));
         n_squared_column.setCellValueFactory(
@@ -55,12 +60,13 @@ public class TableWithBigOController {
         List<Long> numbers_N = BigOController.longList;
         List<Number> numbers_log_n = BigOController.calculateNwithRespectOfPerforamnce(Complexity.log_n);
         for (int i = 0; i < numbers_log_n.size(); i++) {
+            Periods period = Periods.values()[i];
             Number two_pow_n_column = numbers_two_pow_N.get(i);
             Number n_squared_column = numbers_n_squared.get(i);
             Number n_column = numbers_N.get(i);
             Number log_n_column = numbers_log_n.get(i);
 
-            RowWithData rowWithData = new RowWithData(two_pow_n_column, n_squared_column,
+            RowWithData rowWithData = new RowWithData(period, two_pow_n_column, n_squared_column,
                     n_column, log_n_column);
             observableList.add(rowWithData);
         }
