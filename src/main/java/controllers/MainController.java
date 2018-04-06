@@ -5,6 +5,8 @@ import entities.Plot;
 import javafx.fxml.FXML;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -26,6 +28,17 @@ public class MainController {
     private AnchorPane anchorPaneForGraph;
     @FXML
     private TextField txtFieldForEquation;
+
+    @FXML
+    private TableView tblViewBigO;
+    @FXML
+    private TableColumn two_pow_N_column;
+    @FXML
+    private TableColumn n_squared_column;
+    @FXML
+    private TableColumn N_column;
+    @FXML
+    private TableColumn log_n_column;
 
     public MainController(final Stage primaryStage) {
         this.primaryStage = primaryStage;
@@ -56,5 +69,11 @@ public class MainController {
         GraphicsContext graphicsContext2D = canvasGraph.getGraphicsContext2D();
         graphicsContext2D.bezierCurveTo(0, 0, 9, 81, 10, 100);
         graphicsContext2D.stroke();
+    }
+
+    public void populateComplixityTable() {
+        TableWithBigOController tableWithBigOController =
+                new TableWithBigOController(tblViewBigO, two_pow_N_column, n_squared_column, N_column, log_n_column);
+        tableWithBigOController.populateColumns();
     }
 }

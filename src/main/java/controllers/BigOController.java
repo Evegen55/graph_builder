@@ -17,7 +17,7 @@ public class BigOController {
     private static long performance_in_1w = performance_in_1d * 7;
     private static long performance_in_1y = performance_in_1d * 365;
 
-    private static List<Long> longList = new ArrayList<>();
+    public static List<Long> longList = new ArrayList<>();
 
     private static void addAllToList() {
         longList.add(performance_in_second);
@@ -31,7 +31,7 @@ public class BigOController {
         addAllToList();
     }
 
-    public List<Number> calculateNwithRespectOfPerforamnce(final Complexity complexity) {
+    public static List<Number> calculateNwithRespectOfPerforamnce(final Complexity complexity) {
 
         List<Number> calculateNsquared = null;
         switch (complexity) {
@@ -58,7 +58,7 @@ public class BigOController {
         return calculateNsquared;
     }
 
-    private List<Number> calculate2powN() {
+    private static List<Number> calculate2powN() {
         List<Number> calculatedList = new ArrayList<>();
         for (Long l : longList) {
             double pow = Math.log(l);
@@ -67,7 +67,7 @@ public class BigOController {
         return calculatedList;
     }
 
-    private List<Number> calculateNlogN() {
+    private static List<Number> calculateNlogN() {
         List<Number> calculatedList = new ArrayList<>();
         for (Long l : longList) {
             double pow = Math.pow(2, l);
@@ -76,11 +76,11 @@ public class BigOController {
         return calculatedList;
     }
 
-    private void printList(final List<Number> calculateNsquared) {
+    private static void printList(final List<Number> calculateNsquared) {
         calculateNsquared.forEach(System.out::println);
     }
 
-    private List<Number> calculateNsquared() {
+    private static List<Number> calculateNsquared() {
         List<Number> calculatedList = new ArrayList<>();
         for (Long l : longList) {
             calculatedList.add(Math.sqrt(l));

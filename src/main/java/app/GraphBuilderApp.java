@@ -30,6 +30,7 @@ public class GraphBuilderApp extends Application {
         //do the stuff
         mainController.initGraphView();
         mainController.initFreeDrawer();
+        mainController.populateComplixityTable();
 
         LOGGER.info("Main application window has been loaded successfully\n");
     }
