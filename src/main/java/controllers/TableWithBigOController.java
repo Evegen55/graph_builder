@@ -31,6 +31,7 @@ public class TableWithBigOController {
     }
 
     public void populateColumns() {
+        LOGGER.info("Map columns with data ...");
         two_pow_N_column.setCellValueFactory(
                 new PropertyValueFactory<RowWithData, Number>("two_pow_N_column"));
         n_squared_column.setCellValueFactory(
@@ -40,9 +41,11 @@ public class TableWithBigOController {
         log_n_column.setCellValueFactory(
                 new PropertyValueFactory<RowWithData, Number>("log_n_column"));
 
+        LOGGER.info("Perform calculations and create rows for table...");
         final ObservableList<RowWithData> data = calculateAndCreateList();
-
+        LOGGER.info("Map rows to table columns...");
         tblViewBigO.setItems(data);
+        LOGGER.info("Populating table columns with data is done.");
     }
 
     private ObservableList<RowWithData> calculateAndCreateList() {
