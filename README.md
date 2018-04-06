@@ -5,6 +5,8 @@ Assembly distributive:
 
 `mvn assembly:assembly -Dmaven.test.skip=true`
 
+![**first version**](https://raw.githubusercontent.com/Evegen55/graph_builder/master/src/test/resources/for_readme/main_window.PNG)
+
 ## License
 
 Copyright (C) 2017 - 2018 [Evgenii Lartcev](https://github.com/Evegen55/) and contributors
