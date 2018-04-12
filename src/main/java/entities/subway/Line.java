@@ -1,8 +1,8 @@
 package entities.subway;
 
-import java.util.Set;
+import java.util.LinkedHashSet;
 
 public class Line {
 
-    private Set<Station> lineStations;
+    private LinkedHashSet<Station> lineStations;
 }
