@@ -25,6 +25,10 @@ public class Station {
         return isInterchange;
     }
 
+    public String getStationName() {
+        return stationName;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
