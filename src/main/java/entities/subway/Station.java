@@ -2,9 +2,16 @@ package entities.subway;
 
 public class Station {
 
+    private final String stationName;
+
     private boolean isInterchange = false;
 
-    public Station(boolean isInterchange) {
+    public Station(final String stationName) {
+        this.stationName = stationName;
+    }
+
+    public Station(final String stationName, final boolean isInterchange) {
+        this.stationName = stationName;
         this.isInterchange = isInterchange;
     }
 
