@@ -1,5 +1,7 @@
 package entities.subway;
 
+import java.util.Objects;
+
 public class Station {
 
     private final String stationName;
@@ -21,5 +23,19 @@ public class Station {
      */
     public boolean isInterchange() {
         return isInterchange;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Station station = (Station) o;
+        return isInterchange == station.isInterchange &&
+                Objects.equals(stationName, station.stationName);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(stationName, isInterchange);
     }
 }
