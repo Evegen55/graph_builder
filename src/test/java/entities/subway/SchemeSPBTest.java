@@ -14,10 +14,10 @@ public class SchemeSPBTest {
     @Test
     public void test() {
         PathBetweenTwoStations pathBetweenTwoStations1 = PathBetweenTwoStations
-                .createPathBetweenTwoStations(station1, station2, Duration.ofMinutes(9));
+                .createPathBetweenTwoStations(station1, station2, Duration.ofMinutes(9), 1);
 
         PathBetweenTwoStations pathBetweenTwoStations2 = PathBetweenTwoStations
-                .createPathBetweenTwoStations(station2, station3, Duration.ofMinutes(6));
+                .createPathBetweenTwoStations(station2, station3, Duration.ofMinutes(6), 1);
 
         LinkedHashSet<PathBetweenTwoStations> stations = new LinkedHashSet<>();
         stations.add(pathBetweenTwoStations1);

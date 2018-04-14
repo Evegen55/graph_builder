@@ -24,10 +24,10 @@ public class LineTest {
     public void getTotalTripDurationAs() {
         stations = new LinkedHashSet<>();
         PathBetweenTwoStations pathBetweenTwoStations1 = PathBetweenTwoStations
-                .createPathBetweenTwoStations(station1, station2, Duration.ofMinutes(9));
+                .createPathBetweenTwoStations(station1, station2, Duration.ofMinutes(9), 1);
 
         PathBetweenTwoStations pathBetweenTwoStations2 = PathBetweenTwoStations
-                .createPathBetweenTwoStations(station2, station3, Duration.ofMinutes(6));
+                .createPathBetweenTwoStations(station2, station3, Duration.ofMinutes(6), 1);
 
         stations.add(pathBetweenTwoStations1);
         stations.add(pathBetweenTwoStations2);

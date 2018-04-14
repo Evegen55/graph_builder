@@ -56,4 +56,7 @@ public class Line {
     }
 
 
+    public int getNumOfPaths() {
+        return lineStations.size();
+    }
 }
