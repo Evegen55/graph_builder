@@ -1,5 +1,6 @@
 package entities.subway;
 
+import controllers.subway.LinesStorage;
 import org.junit.Test;
 
 import java.time.Duration;
@@ -24,5 +25,19 @@ public class SchemeSPBTest {
         stations[1] = pathBetweenTwoStations2;
 
         Line FrunzenskoPrimorskayaLine = new Line(SpbLinesNames.FrunzenskoPrimorskaya, stations);
+    }
+
+    @Test
+    public void testWithLine() {
+        final Line[] lines = new Line[10];
+        final Line lineForPravoberezhnayaDirectionForward
+                = LinesStorage.getLineForDirection(SpbLinesNames.Pravoberezhnaya, true);
+        final Line lineForPravoberezhnayaDirectionBack
+                = LinesStorage.getLineForDirection(SpbLinesNames.Pravoberezhnaya, false);
+        lines[0] = lineForPravoberezhnayaDirectionForward;
+        lines[1] = lineForPravoberezhnayaDirectionBack;
+        //this can be useful to draw it in canvas
+        final Subway subwaySPB = new SchemeSPB(lines);
+
     }
 }
