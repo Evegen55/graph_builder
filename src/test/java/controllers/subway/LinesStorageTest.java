@@ -2,16 +2,20 @@ package controllers.subway;
 
 import entities.subway.Line;
 import entities.subway.SpbLinesNames;
+import entities.subway.Station;
 import org.junit.Test;
 
 import java.time.Duration;
 
+import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.*;
 
 public class LinesStorageTest {
 
     Line lineForDirection;
     Duration totalTripDuration;
+    Station firstStation;
+    Station lastStation;
 
     @Test
     public void getLineFodDirectionPravoberezhnaya1() {
@@ -21,6 +25,10 @@ public class LinesStorageTest {
         totalTripDuration = lineForDirection.getTotalTripDuration();
         assertNotEquals(totalTripDuration, Duration.ZERO);
         assertEquals(totalTripDuration, Duration.ofMinutes(19));
+        firstStation = lineForDirection.getFirstStation();
+        lastStation = lineForDirection.getLastStation();
+        assertThat(firstStation.getStationName(), is("Spasskaya"));
+        assertThat(lastStation.getStationName(), is("UlitsaDybenko"));
     }
 
     @Test
@@ -31,6 +39,10 @@ public class LinesStorageTest {
         totalTripDuration = lineForDirection.getTotalTripDuration();
         assertNotEquals(totalTripDuration, Duration.ZERO);
         assertEquals(totalTripDuration, Duration.ofMinutes(19));
+        firstStation = lineForDirection.getFirstStation();
+        lastStation = lineForDirection.getLastStation();
+        assertThat(firstStation.getStationName(), is("UlitsaDybenko"));
+        assertThat(lastStation.getStationName(), is("Spasskaya"));
     }
 
     @Test

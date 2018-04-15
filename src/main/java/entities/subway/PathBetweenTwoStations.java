@@ -49,6 +49,15 @@ public class PathBetweenTwoStations {
         return distance;
     }
 
+    public Station getFrom() {
+        return lineStations[0];
+    }
+
+    public Station getTo() {
+        return lineStations[1];
+    }
+
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -61,7 +70,6 @@ public class PathBetweenTwoStations {
 
     @Override
     public int hashCode() {
-
         int result = Objects.hash(tripDuration, distance);
         result = 31 * result + Arrays.hashCode(lineStations);
         return result;

@@ -59,4 +59,14 @@ public class Line {
     public int getNumOfPaths() {
         return lineStations.size();
     }
+
+    public Station getFirstStation() {
+        PathBetweenTwoStations pathBetweenTwoStations = (PathBetweenTwoStations) lineStations.toArray()[0];
+        return pathBetweenTwoStations.getFrom();
+    }
+
+    public Station getLastStation() {
+        PathBetweenTwoStations pathBetweenTwoStations = (PathBetweenTwoStations) lineStations.toArray()[lineStations.size()-1];
+        return pathBetweenTwoStations.getTo();
+    }
 }
