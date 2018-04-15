@@ -19,9 +19,9 @@ public class SchemeSPBTest {
         PathBetweenTwoStations pathBetweenTwoStations2 = PathBetweenTwoStations
                 .createPathBetweenTwoStations(station2, station3, Duration.ofMinutes(6), 1);
 
-        LinkedHashSet<PathBetweenTwoStations> stations = new LinkedHashSet<>();
-        stations.add(pathBetweenTwoStations1);
-        stations.add(pathBetweenTwoStations2);
+        PathBetweenTwoStations[] stations = new PathBetweenTwoStations[2];
+        stations[0] = pathBetweenTwoStations1;
+        stations[1] = pathBetweenTwoStations2;
 
         Line FrunzenskoPrimorskayaLine = new Line(SpbLinesNames.FrunzenskoPrimorskaya, stations);
     }

@@ -12,7 +12,7 @@ public class LinesStorage {
 
     public static Line getLineForDirection(final SpbLinesNames spbLinesName, final boolean isFromNorthToSouth) {
 
-        LinkedHashSet<PathBetweenTwoStations> lineStations = null;
+        final PathBetweenTwoStations[] lineStations;
         Line line = null;
         if (spbLinesName.equals(SpbLinesNames.Pravoberezhnaya)) {
 
@@ -51,14 +51,14 @@ public class LinesStorage {
                 pathBetweenTwoStations6 = PathBetweenTwoStations.createPathBetweenTwoStations(stationLigovskyProspekt, stationDostoyevskaya, Duration.ofMinutes(2), 1000);
                 pathBetweenTwoStations7 = PathBetweenTwoStations.createPathBetweenTwoStations(stationDostoyevskaya,stationSpasskaya, Duration.ofMinutes(2), 1000);
             }
-            lineStations = new LinkedHashSet<>(7);
-            lineStations.add(pathBetweenTwoStations1);
-            lineStations.add(pathBetweenTwoStations2);
-            lineStations.add(pathBetweenTwoStations3);
-            lineStations.add(pathBetweenTwoStations4);
-            lineStations.add(pathBetweenTwoStations5);
-            lineStations.add(pathBetweenTwoStations6);
-            lineStations.add(pathBetweenTwoStations7);
+            lineStations = new PathBetweenTwoStations[7];
+            lineStations[0] = pathBetweenTwoStations1;
+            lineStations[1] = pathBetweenTwoStations2;
+            lineStations[2] = pathBetweenTwoStations3;
+            lineStations[3] = pathBetweenTwoStations4;
+            lineStations[4] = pathBetweenTwoStations5;
+            lineStations[5] = pathBetweenTwoStations6;
+            lineStations[6] = pathBetweenTwoStations7;
             line = new Line(spbLinesName, lineStations);
         }
 

@@ -16,21 +16,21 @@ public class LineTest {
     Station station2 = new Station("Two", true);
     Station station3 = new Station("Three");
 
-    LinkedHashSet<PathBetweenTwoStations> stations;
+    PathBetweenTwoStations[] stations;
     Line line;
     Duration totalTripDuration;
 
     @Test
     public void getTotalTripDurationAs() {
-        stations = new LinkedHashSet<>();
+        stations = new PathBetweenTwoStations[2];
         PathBetweenTwoStations pathBetweenTwoStations1 = PathBetweenTwoStations
                 .createPathBetweenTwoStations(station1, station2, Duration.ofMinutes(9), 1);
 
         PathBetweenTwoStations pathBetweenTwoStations2 = PathBetweenTwoStations
                 .createPathBetweenTwoStations(station2, station3, Duration.ofMinutes(6), 1);
 
-        stations.add(pathBetweenTwoStations1);
-        stations.add(pathBetweenTwoStations2);
+        stations[0] = pathBetweenTwoStations1;
+        stations[1] = pathBetweenTwoStations2;
 
         line = new Line(SpbLinesNames.FrunzenskoPrimorskaya, stations);
         totalTripDuration = line.getTotalTripDuration();

@@ -15,21 +15,20 @@ public class Line {
 
     private String css_color;
 
-    private LinkedHashSet<PathBetweenTwoStations> lineStations;
+    private PathBetweenTwoStations[] lineStations;
 
     private Duration totalTripDuration;
 
     public Line(SpbLinesNames spbLinesNames, PathBetweenTwoStations pathBetweenTwoStations) {
         this.spbLinesNames = spbLinesNames;
-        this.lineStations = new LinkedHashSet<>();
-        this.lineStations.add(pathBetweenTwoStations);
+        lineStations[0] = pathBetweenTwoStations;
     }
 
-    public Line(SpbLinesNames spbLinesNames, LinkedHashSet<PathBetweenTwoStations> lineStations) {
+    public Line(SpbLinesNames spbLinesNames, final PathBetweenTwoStations[] lineStations) {
         this(spbLinesNames, "", lineStations);
     }
 
-    public Line(final SpbLinesNames spbLinesNames, final String css_color, final LinkedHashSet<PathBetweenTwoStations> lineStations) {
+    public Line(final SpbLinesNames spbLinesNames, final String css_color, final PathBetweenTwoStations[] lineStations) {
         this.spbLinesNames = spbLinesNames;
         this.css_color = css_color;
         this.lineStations = lineStations;
@@ -57,16 +56,16 @@ public class Line {
 
 
     public int getNumOfPaths() {
-        return lineStations.size();
+        return lineStations.length;
     }
 
     public Station getFirstStation() {
-        PathBetweenTwoStations pathBetweenTwoStations = (PathBetweenTwoStations) lineStations.toArray()[0];
+        PathBetweenTwoStations pathBetweenTwoStations = lineStations[0];
         return pathBetweenTwoStations.getFrom();
     }
 
     public Station getLastStation() {
-        PathBetweenTwoStations pathBetweenTwoStations = (PathBetweenTwoStations) lineStations.toArray()[lineStations.size()-1];
+        PathBetweenTwoStations pathBetweenTwoStations = lineStations[lineStations.length-1];
         return pathBetweenTwoStations.getTo();
     }
 }
